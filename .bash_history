@@ -120,3 +120,15 @@ gitk
 git log
 git commit -m <2nd commit test>
 git commit -m "2nd commit test"
+git add .
+git commit -m "2nd commit test"
+git remote add origin git@github.com:owens106/cs252Lab6
+git push -u origin master
+git remote add origin https://github.com/owens106/cs252Lab6
+git push -u origin master
+git remote
+git remote rm origin
+git remote add origin https://github.com/owens106/cs252Lab6
+git push -u origin master
+ls
+git commit -m "test 3rd commit"
