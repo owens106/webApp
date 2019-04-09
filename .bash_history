@@ -151,3 +151,16 @@ gitk
 git log
 git show
 git commit -m "testing still"
+git add .
+git commit -m "testing still"
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/owens106/webApp.git
+git remote
+git remote rm origin
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/owens106/webApp.git
+git push -u origin master
