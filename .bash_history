@@ -164,3 +164,6 @@ git add README.md
 git commit -m "first commit"
 git remote add origin https://github.com/owens106/webApp.git
 git push -u origin master
+git add .
+git commit -m "git connected to github, current project is just a static webpage"
+git push 
