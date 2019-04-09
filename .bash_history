@@ -167,3 +167,5 @@ git push -u origin master
 git add .
 git commit -m "git connected to github, current project is just a static webpage"
 git push 
+git add .
+git commit -m "testing come git"
