@@ -132,3 +132,11 @@ git remote add origin https://github.com/owens106/cs252Lab6
 git push -u origin master
 ls
 git commit -m "test 3rd commit"
+git add .
+git commit -m "test 3rd commit"
+git push
+git push -u origin master
+git pull
+git pull origin
+git pull origin 1
+git init
