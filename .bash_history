@@ -108,3 +108,15 @@ pico main.go
 git
 git init
 git add
+git add .
+git commit
+git config --global user.email "owens106@purdue.edu"
+git config --global user.name Colin Owens
+git commit
+git commit initial commit
+git commit "initial commit"
+git commit
+gitk
+git log
+git commit -m <2nd commit test>
+git commit -m "2nd commit test"
