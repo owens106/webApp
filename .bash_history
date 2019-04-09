@@ -169,3 +169,9 @@ git commit -m "git connected to github, current project is just a static webpage
 git push 
 git add .
 git commit -m "testing come git"
+git add .
+git commit -m "still testing git"
+git push
+pico main.go 
+gcloud app deploy
+gcloud app browse 
