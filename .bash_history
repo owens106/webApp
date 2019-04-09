@@ -140,3 +140,14 @@ git pull
 git pull origin
 git pull origin 1
 git init
+git add .
+ls
+git commit
+git commit -m "git cleanup"
+git log
+git remote add origin https://github.com/owens106/webApp.git
+git push -u origin master
+gitk
+git log
+git show
+git commit -m "testing still"
