@@ -192,3 +192,7 @@ pico main.go
 git add .
 git commit -m "Posts are now stored with Unique key in cloud store"
 pico main.go 
+git add .
+git commit -m "Added a Query request for the past 20 posts sent to cloud, exectued that request and results are appended to the posts[]"
+pico index.
+pico index.html

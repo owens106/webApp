@@ -1,20 +1,27 @@
 <!doctype html>
 <html>
 <head>
-  <title>The Gopher Network</title>
+  <title>Cool guy zone</title>
   <link rel="stylesheet" type="text/css" href="/static/style.css">
 </head>
-<body>
+  <body>
 
-<h1>The Gopher Network</h1>
+	<h1>CS252 web project</h1>
 
-<img id="logo" src="/static/gcp-gopher.svg" width="100">
-{{with .Notice}}<div id="notice">{{.}}</div>{{end}}
+	<img id="logo" src="/static/gcp-gopher.svg" width="100"> <!-- puts image on site -->
+	{{with .Notice}}<div id="notice">{{.}}</div>{{end}}
 
-<form action="/" method="post">
-  <div>Name: <input name="name" value="{{.Name}}"></div>
-  <div>Message: <input name="message"></div>
-  <input type="submit">
-</form>
-</body>
+	<form action="/" method="post">
+  		<div>Name: <input name="name" value="{{.Name}}"></div> <!-- name field -->
+ 		 <div>Message: <input name="message"></div> <!--msg feild -->
+ 	 	<input type="submit">
+	</form>
+	{{with .Posts}} <!-- grabs the posts[] data structure with cleanup -->
+	<ol> <!-- unorder list tag-->
+  	  {{range .}} <!-- for every element in post ...[] -->
+  	  <li><cite>{{.Author}}</cite><p>{{.Message}}</p><p>{{.Time}</p></li> <!-- show the author and msg and time -->
+  	  {{end}}
+	</ol>
+	  {{end}}
+  </body>
 </html>
