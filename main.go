@@ -28,7 +28,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
         // if statement redirects all invalid URLs to the root homepage.
         // Ex: if URL is http://[YOUR_PROJECT_ID].appspot.com/FOO, it will be
         // redirected to http://[YOUR_PROJECT_ID].appspot.com.
-        if r.URL.Path != "/" {
+        if r.URL.Path != "/" { //redirect invalid paths to home page
                 http.Redirect(w, r, "/", http.StatusFound)
                 return
         }
@@ -62,7 +62,20 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 	Posted: time.Now(), //set time to current time
 
 	}
+	ctx := appengine.NewContext(r)  //links all ops related to a given request together
+	key := datastore.NewIncompleteKey(ctx, "Post", nil) //creates Unique key for request
 
+	if _, err := datastore.Put(ctx, key, &post); err != nil { //adds the context to the datastore cloud
+	//it can be accesed using the specific key that is generated every POST request
+        log.Errorf(ctx, "datastore.Put: %v", err)
+
+        w.WriteHeader(http.StatusInternalServerError)
+        params.Notice = "Couldn't add new post. Try again?"
+        params.Message = post.Message // Preserve their message so they can try again.
+        indexTemplate.Execute(w, params)
+        return
+	}
+	params.Posts = append([]Post{post}, params.Posts...) //the posts array is updated with the new post
 	params.Notice = fmt.Sprintf("Thank you for your submission, %s!", name)
 	indexTemplate.Execute(w, params)
 

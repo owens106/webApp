@@ -186,3 +186,6 @@ git commit -m "store messages in local array"
 git add .
 git commit -m "store messages in local array"
 pico main.go 
+git add .
+git commit -m "Post request values are stored in post struct"
+pico main.go 
