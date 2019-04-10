@@ -189,3 +189,6 @@ pico main.go
 git add .
 git commit -m "Post request values are stored in post struct"
 pico main.go 
+git add .
+git commit -m "Posts are now stored with Unique key in cloud store"
+pico main.go 

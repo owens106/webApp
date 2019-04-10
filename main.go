@@ -41,7 +41,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 
 	// It's a POST request, so handle the form submission. User submitted content
 
-	name := r.FormValue("name")
+	name := r.FormValue("name") //grab value of name field
 	params.Name = name // Preserve the name field.
 	if name == "" {
         	name = "Anonymous Gopher"
@@ -55,19 +55,20 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
        		 return
 	}
 
-	// TODO: save the message into a database.
+	//Adding contents to data base
 	post := Post{
 	Author: r.FormValue("name"), //sets Author value of post type to what the value of name box
 	Message: r.FormValue("message"), //sets msg variable of post type to contents of msg box
 	Posted: time.Now(), //set time to current time
 
 	}
-	ctx := appengine.NewContext(r)  //links all ops related to a given request together
+	ctx := appengine.NewContext(r)  //links all operations related to a given request together
 	key := datastore.NewIncompleteKey(ctx, "Post", nil) //creates Unique key for request
 
-	if _, err := datastore.Put(ctx, key, &post); err != nil { //adds the context to the datastore cloud
+	if _, err := datastore.Put(ctx, key, &post); err != nil { //adds the ctx to the datastore cloud
 	//it can be accesed using the specific key that is generated every POST request
-        log.Errorf(ctx, "datastore.Put: %v", err)
+        log.Errorf(ctx, "datastore.Put: %v", err) //only gets here if it could not store in database
+	//sends error msg and refreshes page
 
         w.WriteHeader(http.StatusInternalServerError)
         params.Notice = "Couldn't add new post. Try again?"
@@ -76,6 +77,19 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
         return
 	}
 	params.Posts = append([]Post{post}, params.Posts...) //the posts array is updated with the new post
+
+	//end adding contents to database
+
+	//getting contents from database
+	q := datastore.NewQuery("Post").Order("-Posted").Limit(20) //q = last 20 posts added to database. This only a request, it HAS NOT been executed yet
+	if _, err := q.GetAll(ctx, &params.Posts); err != nil { //attempt to execture the query request, if successful the posts will be appended to the Posts[]
+        log.Errorf(ctx, "Getting posts: %v", err) //if fail give err msg and refresh page
+        w.WriteHeader(http.StatusInternalServerError)
+        params.Notice = "Couldn't get latest posts. Refresh?"
+        indexTemplate.Execute(w, params)
+        return
+	}
+
 	params.Notice = fmt.Sprintf("Thank you for your submission, %s!", name)
 	indexTemplate.Execute(w, params)
 
