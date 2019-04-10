@@ -3,6 +3,10 @@ import (
 	"fmt"
 	"html/template"
         "net/http"
+	"time"
+
+	"google.golang.org/appengine/datastore"
+	"google.golang.org/appengine/log"
 
         "google.golang.org/appengine" // Required external App Engine library
 )
@@ -12,6 +16,13 @@ var (
 type templateParams struct {
         Notice string
         Name   string
+	Message string
+	Posts []Post   //stores an array of posts types
+}
+type Post struct {
+	Author string //variable for name field
+	Message string //variable for messg field
+	Posted time.Time //stores date and time of message
 }
 func indexHandler(w http.ResponseWriter, r *http.Request) {
         // if statement redirects all invalid URLs to the root homepage.
@@ -36,7 +47,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
         	name = "Anonymous Gopher"
 	}
 
-	if r.FormValue("message") == "" {
+	if r.FormValue("message") == "" { //preserve msg field
         	w.WriteHeader(http.StatusBadRequest)
 
        		 params.Notice = "No message provided"

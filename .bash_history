@@ -175,3 +175,11 @@ git push
 pico main.go 
 gcloud app deploy
 gcloud app browse 
+git add .
+git commit -m "added a name and message field, makes for dynamic html"
+git push
+exit
+gcloud app deploy
+gcloud app browse
+pico main.go 
+git commit -m "store messages in local array"
