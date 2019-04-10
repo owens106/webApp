@@ -183,3 +183,6 @@ gcloud app deploy
 gcloud app browse
 pico main.go 
 git commit -m "store messages in local array"
+git add .
+git commit -m "store messages in local array"
+pico main.go 

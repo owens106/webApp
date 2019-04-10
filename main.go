@@ -39,7 +39,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
         return
 	}
 
-	// It's a POST request, so handle the form submission.
+	// It's a POST request, so handle the form submission. User submitted content
 
 	name := r.FormValue("name")
 	params.Name = name // Preserve the name field.
@@ -56,6 +56,12 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// TODO: save the message into a database.
+	post := Post{
+	Author: r.FormValue("name"), //sets Author value of post type to what the value of name box
+	Message: r.FormValue("message"), //sets msg variable of post type to contents of msg box
+	Posted: time.Now(), //set time to current time
+
+	}
 
 	params.Notice = fmt.Sprintf("Thank you for your submission, %s!", name)
 	indexTemplate.Execute(w, params)
