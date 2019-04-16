@@ -228,3 +228,18 @@ gcloud app deploy
 pico main.go 
 gcloud app deploy
 gcloud app browse 
+git add .
+git commit -m "formated time, need to change timezone and reformat time"
+pico main.go 
+gcloud app deploy
+pico main.go 
+gcloud app deploy
+pico main.go 
+gcloud app deploy
+pico main.go 
+gcloud app deploy
+pico main.go 
+gcloud app deploy
+pico main.go 
+gcloud app deploy
+gcloud app browse 
