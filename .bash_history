@@ -196,3 +196,15 @@ git add .
 git commit -m "Added a Query request for the past 20 posts sent to cloud, exectued that request and results are appended to the posts[]"
 pico index.
 pico index.html
+git add .
+git commit -m "20 most recent msgs are displayed on page"
+git push
+gcloud app deploy
+gcloud app browse 
+pico index.html 
+pico app.yaml 
+pico main.go 
+pico index.html
+gcloup app deploy
+gcloud app deploy
+gcloud app browse 
