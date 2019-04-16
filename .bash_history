@@ -243,3 +243,16 @@ gcloud app deploy
 pico main.go 
 gcloud app deploy
 gcloud app browse 
+git add .
+git commit -m "changed time to EST zone, updated formating"
+pico main.go 
+gcloud app deploy
+gcloud app browse 
+pico main.go 
+gcloud app deploy
+gcloud app browse
+pico main.go 
+gcloud app browse
+gcloud app deploy
+gcloud app browse 
+gitadd .
