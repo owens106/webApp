@@ -19,7 +19,7 @@
 	{{with .Posts}} <!-- grabs the posts[] data structure with cleanup -->
 	<ol> <!-- unorder list tag-->
   	  {{range .}} <!-- for every element in post ...[] -->
-  	  <li><cite>{{.Author}}</cite><p>{{.Message}}</p></li> <!-- show the author and msg and time -->
+  	  <li><cite>{{.Author}}</cite><p>{{.Message}}</p><p>{{.Posted}}</p></li> <!-- show the author and msg and time -->
   	  {{end}}
 	</ol>
 	  {{end}}

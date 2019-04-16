@@ -208,3 +208,23 @@ pico index.html
 gcloup app deploy
 gcloud app deploy
 gcloud app browse 
+git add .
+git commit -m "fixed html syntax error for printing posted time"
+pico main.go 
+pico index.html
+pico main.go 
+pico index.html
+dev_appserver.py
+dev_appserver.py app.yaml 
+gcloud app deploy
+gcloud app browse 
+pico main.go 
+gcloud app deploy
+pico main.go 
+go tool compile main.go
+gcloud app deploy
+pico main.go 
+gcloud app deploy
+pico main.go 
+gcloud app deploy
+gcloud app browse 

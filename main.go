@@ -22,7 +22,7 @@ type templateParams struct {
 type Post struct {
 	Author string //variable for name field
 	Message string //variable for messg field
-	Posted time.Time //stores date and time of message
+	Posted string  //stores date and time of message. Make a string for formating purpose
 }
 func indexHandler(w http.ResponseWriter, r *http.Request) {
         // if statement redirects all invalid URLs to the root homepage.
@@ -59,7 +59,8 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 	post := Post{
 	Author: r.FormValue("name"), //sets Author value of post type to what the value of name box
 	Message: r.FormValue("message"), //sets msg variable of post type to contents of msg box
-	Posted: time.Now(), //set time to current time
+
+	Posted: time.Now().Format("0102030405"), //set time to current time. Format: MMdHHmmss
 
 	}
 	ctx := appengine.NewContext(r)  //links all operations related to a given request together
