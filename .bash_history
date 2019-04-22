@@ -303,3 +303,13 @@ pico main.go
 pico index.html
 pico main.go 
 pico index.html
+git add .
+git commit -m "added to html and CSS to account for google auth"
+ls
+pico index.html
+pico static/
+cd static/
+ls
+pico style.css 
+cd ..
+pico index.html

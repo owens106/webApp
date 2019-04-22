@@ -13,11 +13,20 @@
 	<img id="logo" src="/static/gcp-gopher.svg" width="100"> <!-- puts image on site -->
 	{{with .Notice}}<div id="notice">{{.}}</div>{{end}}
 
-	<form action="/" method="post">
+	<div id="firebaseui-auth-container"></div>
+	<div id="sign-in"></div>
+	<div>
+ 			 <span id="account-details"></span>
+  			<button id="sign-out" hidden=true>Sign Out</button>
+	</div>
+
+	<form id="post-form"  action="/" method="post" hidden=true>
   		<div>Name: <input name="name" value="{{.Name}}"></div> <!-- name field -->
- 		 <div>Message: <input name="message"></div> <!--msg feild -->
+ 		 <div>Message: <input name="message" value="{{.Message}}"></div> <!--msg field -->
+		<input type="hidden" name="token" id="token">
  	 	<input type="submit">
 	</form>
+	
 	{{with .Posts}} <!-- grabs the posts[] data structure with cleanup -->
 	<ol> <!-- unorder list tag-->
   	  {{range .}} <!-- for every element in post ...[] -->
