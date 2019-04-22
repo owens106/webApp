@@ -256,3 +256,23 @@ gcloud app browse
 gcloud app deploy
 gcloud app browse 
 gitadd .
+git add .
+git commit -m "Time reformated again...prints 4 hours ahead..."
+pico main.go 
+git push
+exit
+gcloud app deploy
+gcloud app browse 
+git log
+gcloud app deploy
+gcloud app browse 
+pico main.go 
+gcloud app browse 
+gcloud app deploy
+gcloud app browse 
+pico main.go 
+gcloud app deploy
+gcloud app browse 
+pico main.go 
+gcloud app deploy
+gcloud app browse 

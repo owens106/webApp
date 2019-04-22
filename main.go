@@ -56,19 +56,20 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	//Adding contents to data base
-	est, err :=time.LoadLocation("EST")
+	est, err :=time.LoadLocation("America/Indianapolis")
 
 	if err != nil{
 	  fmt.Println(err)
 	  fmt.Println(est)   //prints out err if loadLocation fails
 	}
-	//estTime := time.Now().In(est)
-	time :=time.Now()
+	estTime := time.Now().In(est)
+//	loc, err := time.LoadLocation(
+//	time :=time.Now()
 	post := Post{
 	Author: r.FormValue("name"), //sets Author value of post type to what the value of name box
 	Message: r.FormValue("message"), //sets msg variable of post type to contents of msg box
 
-	Posted: time.Format("Mon , Jan 02 03:04:05"), //set time to current time in current zone Format: DayName month date HH:MM:SS Year
+	Posted: estTime.Format("Mon , Jan 02 03:04:05"), //set time to current time in current zone Format: DayName month date HH:MM:SS Year
 
 	}
 	ctx := appengine.NewContext(r)  //links all operations related to a given request together
