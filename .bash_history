@@ -291,3 +291,9 @@ pico main.go
 import firebase from "firebase"
 pico main.go 
 git commit -m "added framework for firebase"
+git add .
+git commit -m "added framework for firebase"
+pico main.go 
+pico index.html
+pico main.go 
+pico index.html 

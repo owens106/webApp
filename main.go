@@ -15,18 +15,15 @@ import (
 var (
         indexTemplate = template.Must(template.ParseFiles("index.html"))
 )
-var firebase = require("firebase");
-var firebaseConfig ={
-     apiKey: "AIzaSyATPD_tbMr-tcbqyR8SN5WGEwkyEDO5hEc",
-    authDomain: "cs252owens106-final-4-9-422.firebaseapp.com",
-    databaseURL: "https://cs252owens106-final-4-9-422.firebaseio.com",
-    projectId: "cs252owens106-final-4-9-422",
-    storageBucket: "cs252owens106-final-4-9-422.appspot.com",
-    messagingSenderId: "947147811687"
+var (
+        firebaseConfig = &firebase.Config{
+                DatabaseURL:   "https://console.firebase.google.com > Overview > Add Firebase to your web app",
+                ProjectID:     "https://console.firebase.google.com > Overview > Add Firebase to your web app",
+                StorageBucket: "https://console.firebase.google.com > Overview > Add Firebase to your web app",
+        }
+        indexTemplate = template.Must(template.ParseFiles("index.html"))
+)
 
-
-};
-firebase.initializeApp(firebaseConfig);
 type templateParams struct {
         Notice string
         Name   string
