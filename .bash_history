@@ -276,3 +276,18 @@ gcloud app browse
 pico main.go 
 gcloud app deploy
 gcloud app browse 
+git add .
+git comit -m "Finally got the time output to be EDT instead of EST"
+git commit -m "Finally got the time output to be EDT instead of EST"
+pico main.go
+go get -u firebase.google.com/go
+pico main.go 
+pico index.html 
+fg
+nmp init
+npm init
+npm install --save firebase
+pico main.go 
+import firebase from "firebase"
+pico main.go 
+git commit -m "added framework for firebase"

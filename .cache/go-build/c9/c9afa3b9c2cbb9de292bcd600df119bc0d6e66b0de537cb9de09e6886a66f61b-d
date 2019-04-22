@@ -1,0 +1,5 @@
+./common.pb.go
+./document.pb.go
+./firestore.pb.go
+./query.pb.go
+./write.pb.go

@@ -1,5 +1,6 @@
 package main
 import (
+	firebase "firebase.google.com/go"
 	"fmt"
 	"html/template"
         "net/http"
@@ -10,9 +11,22 @@ import (
 
         "google.golang.org/appengine" // Required external App Engine library
 )
+
 var (
         indexTemplate = template.Must(template.ParseFiles("index.html"))
 )
+var firebase = require("firebase");
+var firebaseConfig ={
+     apiKey: "AIzaSyATPD_tbMr-tcbqyR8SN5WGEwkyEDO5hEc",
+    authDomain: "cs252owens106-final-4-9-422.firebaseapp.com",
+    databaseURL: "https://cs252owens106-final-4-9-422.firebaseio.com",
+    projectId: "cs252owens106-final-4-9-422",
+    storageBucket: "cs252owens106-final-4-9-422.appspot.com",
+    messagingSenderId: "947147811687"
+
+
+};
+firebase.initializeApp(firebaseConfig);
 type templateParams struct {
         Notice string
         Name   string
