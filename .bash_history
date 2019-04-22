@@ -297,3 +297,9 @@ pico main.go
 pico index.html
 pico main.go 
 pico index.html 
+git add .
+git commit -m "debugged firebase framework"
+pico main.go 
+pico index.html
+pico main.go 
+pico index.html

@@ -17,9 +17,9 @@ var (
 )
 var (
         firebaseConfig = &firebase.Config{
-                DatabaseURL:   "https://console.firebase.google.com > Overview > Add Firebase to your web app",
-                ProjectID:     "https://console.firebase.google.com > Overview > Add Firebase to your web app",
-                StorageBucket: "https://console.firebase.google.com > Overview > Add Firebase to your web app",
+                DatabaseURL:   "https:cs252owens106-final-4-9-422.firebaseio.com",
+                ProjectID:     "https:cs252owens106-final-4-9-422",
+                StorageBucket: "https:cs252owens106-final-4-9-422.appspot.com",
         }
         indexTemplate = template.Must(template.ParseFiles("index.html"))
 )
